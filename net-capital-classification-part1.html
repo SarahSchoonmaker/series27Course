@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Net Capital Asset Classification</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f0f2f5;
+            color: #1a1a1a;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            padding: 24px;
+        }
+
+        .header {
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 16px;
+        }
+
+        .key-info {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 24px;
+        }
+
+        .key-info h3 {
+            color: #3182ce;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+
+        .key-info ul {
+            list-style-position: inside;
+            color: #4a5568;
+            padding-left: 16px;
+        }
+
+        .key-info li {
+            margin-bottom: 6px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .button-group button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            background: #e2e8f0;
+            color: #4a5568;
+        }
+
+        .button-group button.active {
+            background: #3182ce;
+            color: white;
+        }
+
+        .button-group button:hover {
+            transform: translateY(-1px);
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 24px;
+        }
+
+        .category {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+
+        .category-header {
+            margin-bottom: 12px;
+        }
+
+        .category-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 4px;
+        }
+
+        .category-info {
+            font-size: 14px;
+            color: #718096;
+        }
+
+        .asset {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 12px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .asset:hover {
+            transform: translateX(4px);
+            border-color: #3182ce;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .asset.selected {
+            border-color: #3182ce;
+            background: #ebf8ff;
+        }
+
+        .allowable {
+            color: #38a169;
+        }
+
+        .non-allowable {
+            color: #e53e3e;
+        }
+
+        .timing-badge {
+            font-size: 12px;
+            padding: 4px 8px;
+            background: #edf2f7;
+            border-radius: 12px;
+            color: #718096;
+        }
+
+        .details {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            position: sticky;
+            top: 24px;
+            height: fit-content;
+        }
+
+        .details h3 {
+            font-size: 20px;
+            margin-bottom: 16px;
+            color: #2d3748;
+        }
+
+        .detail-section {
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        .detail-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .special-note {
+            background: #ebf8ff;
+            border: 1px solid #bee3f8;
+            border-radius: 6px;
+            padding: 12px;
+            margin-top: 8px;
+            color: #2c5282;
+        }
+
+        .empty-state {
+            color: #718096;
+            text-align: center;
+            padding: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 16px;
+            }
+            
+            .button-group {
+                flex-wrap: wrap;
+            }
+            
+            .details {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">Net Capital Asset Classification</h1>
+            <div class="key-info">
+                <h3>Key Classification Principles</h3>
+                <ul>
+                    <li>Regular fails to deliver age after 5 business days (15% haircut)</li>
+                    <li>Municipal securities fail to deliver age after 21 business days</li>
+                    <li>Municipal syndicate receivables allowable for 60 days</li>
+                    <li>Corporate good faith deposits allowable for 11 business days</li>
+                    <li>Mark to market gains cannot increase net capital</li>
+                    <li>Secured receivables allowable up to haircutted collateral value</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button onclick="filterAssets('all')" class="active">All Assets</button>
+            <button onclick="filterAssets('allowable')">Allowable Only</button>
+            <button onclick="filterAssets('non-allowable')">Non-Allowable Only</button>
+        </div>
+
+        <div class="content-grid">
+            <div id="assetList"></div>
+            <div id="assetDetails" class="details">
+                <div class="empty-state">Select an asset to view detailed classification information</div>
+            </div>
+        </div>
+    </div>

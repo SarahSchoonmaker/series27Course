@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Net Capital Asset Classification</title>
+  <style>
+    /* Styles for layout */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .principles {
+      background-color: #eef;
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .principles ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+    .button-group button {
+      padding: 8px 16px;
+      margin-right: 8px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .asset {
+      border: 1px solid #ddd;
+      padding: 12px;
+      margin-bottom: 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .allowable {
+      color: green;
+    }
+    .non-allowable {
+      color: red;
+    }
+    .details {
+      border: 1px solid #eee;
+      padding: 16px;
+      margin-top: 20px;
+      border-radius: 8px;
+      background-color: #f5f5f5;
+    }
+    .details h3 {
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Net Capital Asset Classification</h2>
+
+  <div class="principles">
+    <h3>Key Classification Principles</h3>
+    <ul>
+      <li>Regular fails to deliver age after 5 business days (15% haircut)</li>
+      <li>Municipal securities fail to deliver age after 21 business days</li>
+      <li>Municipal syndicate receivables allowable for 60 days</li>
+      <li>Corporate good faith deposits allowable for 11 business days</li>
+      <li>Mark to market gains cannot increase net capital</li>
+      <li>Secured receivables allowable up to haircutted collateral value</li>
+    </ul>
+  </div>
+
+  <div class="button-group">
+    <button onclick="filterAssets('all')">All Assets</button>
+    <button onclick="filterAssets('allowable')">Allowable Only</button>
+    <button onclick="filterAssets('non-allowable')">Non-Allowable Only</button>
+  </div>
+  
+  <div id="assetList"></div>
+  <div id="assetDetails" class="details">Select an asset to view details.</div>
+</div>
+
+<script>
+  // Define assets array
+  const assets = [
+    {
+      category: "Cash and Bank",
+      items: [
+        { name: "Cash in Bank", isAllowable: true, description: "Liquid asset available for claims in liquidation", condition: "Must be kept in a third-party bank; non-allowable if held at parent bank" },
+        { name: "Cash in Special Reserve", isAllowable: true, description: "Segregated account for customer protection", condition: "Only customer claims can be paid with these funds" },
+        { name: "Petty Cash", isAllowable: false, description: "Small cash funds for minor expenses", condition: "Non-allowable as viewed as already spent" },
+        { name: "Deficits in Introduced Accounts", isAllowable: false, description: "A final point regarding this type of collateral deficiency in a customer account. Because the customer account is carried by the clearing firm, it is the clearing firm that computes the collateral deficiency and subsequent charge to net capital. The clearing firm must notify the introducing broker-dealer of such charges each day and the introducing broker-dealer must reflect the charge in its net capital computation on the business day following." }
+      ]
+    },
+    {
+      category: "Receivables and Fails",
+      items: [
+        { name: "Regular Securities Fails to Deliver", isAllowable: true, description: "Securities not received by settlement date", condition: "Ages after 5 business days with 15% haircut", timing: "5 business days" },
+        { name: "Municipal Securities Fails to Deliver", isAllowable: true, description: "Municipal securities fails", condition: "Extended aging period compared to regular fails", timing: "21 business days" },
+        { name: "Notes Receivable (Secured)", isAllowable: true, description: "Notes secured by marketable securities", condition: "Allowable up to haircutted value of collateral", specialNote: "If $150,000 note secured by $160,000 common stock, $136,000 allowable (85% of collateral)" },
+        { name: "Municipal Syndicate Receivable", isAllowable: true, description: "Receivables from municipal underwritings", condition: "Allowable if 60 or fewer days old", timing: "60 days" },
+        { name: "Corporate Syndicate Profits", isAllowable: false, description: "Profits from corporate underwritings", condition: "Non-allowable until actually paid due to risk" },
+        { name: "Commissions Receivable", isAllowable: true, description: "Interest, dividends, commissions, floor brokerage", condition: "Allowable if less than 30 days old", timing: "30 days" },
+        { name: "Aged Fails to Deliver", isAllowable: true, description: "Fails to deliver are 'aged' and must be marked to market and a 15% haircut taken on the 5th business day after original settlement", condition: "The 'fail' cannot remain open indefinitely. After the 10th business day, the firm must buy in the position, charging any loss to the customer." },
+        { name: "2nd Reg. T. Extension", isAllowable: true, description: "When a customer buys securities in a margin account, the firm issues a margin call to the customer in the amount of the debit. Under industry rules, the customer generally has 2 business days to meet this first call. If the funds do not arrive on the 2nd business day, the firm can request an extension for collection. This is termed the first Reg. T. extension, and is for another 2 business days. If the funds do not arrive by the time the first extension expires, then it is doubtful that the customer will pay. At this point, the position must be marked to market, and the appropriate haircut taken.", condition: "Only allowable to the 'haircutted' value of the underlying collateral" }
+      ]
+    },
+    {
+      category: "Securities and Investments",
+      items: [
+        { name: "Market Making Inventory", isAllowable: true, description: "Securities held for market making", condition: "Allowable but subject to haircut after Tentative Net Capital" },
+        { name: "Stock Borrowed", isAllowable: true, description: "Securities borrowed with cash collateral", condition: "Fully allowable due to 100% cash deposit" },
+        { name: "Unregistered Warrants", isAllowable: false, description: "Firm investments in unregistered securities", condition: "Non-allowable until registered and marketable", specialNote: "Becomes allowable upon registration" },
+        { name: "Reverse Repurchase Agreement", isAllowable: true, description: "If a broker-dealer enters into a reverse repurchase agreement, it uses its excess cash to buy government securities from another dealer, typically overnight, and then sells those securities back to the same dealer the next day (this is also called a 'buy-sell agreement'). The difference between the purchase and higher sale price the next day is the interest earned. Basically, this is a secured overnight loan from the standpoint of the buying dealer." }
+      ]
+    },
+    {
+      category: "Fixed Assets",
+      items: [
+        { name: "Real Estate", isAllowable: false, description: "Property owned by broker-dealer", condition: "Only unmortgaged portion is non-allowable", specialNote: "For $250,000 property with $200,000 mortgage, only $50,000 is non-allowable" },
+        { name: "Furniture and Fixtures", isAllowable: false, description: "Tangible property and equipment", condition: "Non-allowable as not readily convertible to cash" },
+        { name: "Goodwill", isAllowable: false, description: "Intangible assets", condition: "Non-allowable as intangible" }
+      ]
+    },
+    {
+      category: "Insurance Claims",
+      items: [
+        { name: "Uncovered Insurance Claims", isAllowable: false, description: "Claims without coverage opinion", condition: "Non-allowable after 7 business days from loss", timing: "7 business days" },
+        { name: "Unacknowledged Insurance Claims", isAllowable: false, description: "Claims not acknowledged by insurer", condition: "Non-allowable after 20 business days from loss", timing: "20 business days" }
+      ]
+    },
+    {
+      category: "Other Items",
+      items: [
+        { name: "Prepaid Expenses", isAllowable: false, description: "Advance payments for expenses", condition: "Non-allowable due to uncertain recovery value" },
+        { name: "Corporate Good Faith Deposits", isAllowable: true, description: "Deposits for corporate underwritings", condition: "Allowable for 11 business days from settlement", timing: "11 business days" },
+        { name: "PAB (Proprietary Accounts of Broker-Dealers)", isAllowable: true, description: "Introducing broker-dealers are considered to be the 'customers' of clearing firms. As part of the clearing agreement, the clearing firm requires the introducing broker-dealer to maintain a clearing deposit (usually around $50,000 - $100,000). This asset of the introducing broker-dealer is 'allowable' for net capital purposes because the clearing broker-dealer must segregate this amount and cannot use it in its business (with 1 exception that is covered in the next chapter)." }
+      ]
+    }
+  ];
+
+  let selectedFilter = 'all';
+
+  function filterAssets(filter) {
+    selectedFilter = filter;
+    renderAssets();
+  }
+
+  function renderAssets() {
+    const assetList = document.getElementById('assetList');
+    assetList.innerHTML = '';
+
+    assets.flatMap(category => category.items).filter(asset => {
+      if (selectedFilter === 'allowable') return asset.isAllowable;
+      if (selectedFilter === 'non-allowable') return !asset.isAllowable;
+      return true;
+    }).forEach(asset => {
+      const assetElement = document.createElement('div');
+      assetElement.className = 'asset';
+      assetElement.innerHTML = `<strong class="${asset.isAllowable ? 'allowable' : 'non-allowable'}">${asset.name}</strong>`;
+      assetElement.onclick = () => showDetails(asset);
+      assetList.appendChild(assetElement);
+    });
+  }
+
+  function showDetails(asset) {
+    const assetDetails = document.getElementById('assetDetails');
+    assetDetails.innerHTML = `
+      <h3>${asset.name}</h3>
+      <p><strong>Allowability:</strong> ${asset.isAllowable ? 'Allowable' : 'Non-Allowable'}</p>
+      <p><strong>Description:</strong> ${asset.description}</p>
+      <p><strong>Condition:</strong> ${asset.condition}</p>
+      ${asset.timing ? `<p><strong>Time Limitation:</strong> ${asset.timing}</p>` : ''}
+      ${asset.specialNote ? `<p><strong>Note:</strong> ${asset.specialNote}</p>` : ''}
+    `;
+  }
+
+  // Initial rendering
+  renderAssets();
+</script>
+
+</body>
+</html>

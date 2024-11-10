@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Net Capital Asset Classification</title>
+  <style>
+    /* Styles for layout */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .principles {
+      background-color: #eef;
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .principles ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+    .button-group button {
+      padding: 8px 16px;
+      margin-right: 8px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .asset {
+      border: 1px solid #ddd;
+      padding: 12px;
+      margin-bottom: 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .allowable {
+      color: green;
+    }
+    .non-allowable {
+      color: red;
+    }
+    .details {
+      border: 1px solid #eee;
+      padding: 16px;
+      margin-top: 20px;
+      border-radius: 8px;
+      background-color: #f5f5f5;
+    }
+    .details h3 {
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Net Capital Asset Classification</h2>
+
+  <div class="principles">
+    <h3>Key Classification Principles</h3>
+    <ul>
+      <li>Concentration haircuts on equities are taken immediately upon the position entering the firm's inventory account, except for underwriting positions held for less than 11 business days</li>
+      <li>Equity securities haircut is only applied above a $10,000 or 500 shares threshold</li>
+      <li>Limited trading market haircut is 40% if 1 or 2 market makers aside from your firm</li>
+      <li>Non-marketable securities have a 100% haircut</li>
+      <li>Undue concentration haircut of an additional 15% if position exceeds 10% of Tentative Net Capital</li>
+      <li>Concentration haircuts do not apply to government securities and mutual funds</li>
+      <li>Concentration haircut for municipal securities is 1/2 of the basic haircut</li>
+    </ul>
+  </div>
+
+  <div class="button-group">
+    <button onclick="filterAssets('all')">All Assets</button>
+    <button onclick="filterAssets('allowable')">Allowable Only</button>
+    <button onclick="filterAssets('non-allowable')">Non-Allowable Only</button>
+  </div>
+  
+  <div id="assetList"></div>
+  <div id="assetDetails" class="details">Select an asset to view details.</div>
+</div>
+
+<script>
+  // Define assets array
+  const assets = [
+    {
+      category: "Equity Securities",
+      items: [
+        { name: "Underwritten Equity Positions (< 11 days)", isAllowable: true, description: "Concentration haircuts are taken immediately upon the position entering the firm's inventory account. An exception is given for equity positions taken as the result of an underwriting, where the haircut only applies if the position is in inventory for over 11 business days.", condition: "Haircut is only required above a $10,000 or 500 shares threshold" },
+        { name: "Actively Traded Equity Securities", isAllowable: true, description: "Basic haircut of 15% for equity securities with 4 or more market makers", condition: "Limited trading market haircut of 40% if 1 or 2 market makers aside from your firm" },
+        { name: "Other Equity Securities", isAllowable: true, description: "Basic haircut of 15% for all other equity securities not meeting the 'actively traded' criteria", condition: "Non-marketable securities have a 100% haircut" },
+        { name: "Concentrated Equity Positions", isAllowable: true, description: "An additional 15% haircut is required if the position exceeds 10% of the firm's Tentative Net Capital", condition: "Undue concentration haircut applies" }
+      ]
+    },
+    {
+      category: "Municipal Securities",
+      items: [
+        { name: "Municipal Securities", isAllowable: true, description: "Concentration haircuts apply to municipal securities, options, money market instruments, preferred stock and corporate debt", condition: "Concentration haircut is 1/2 of the basic 15% haircut" }
+      ]
+    },
+    {
+      category: "Government Securities",
+      items: [
+        { name: "U.S. Government Securities", isAllowable: true, description: "Concentration haircuts do not apply to government securities positions", condition: "No concentration haircut required" }
+      ]
+    },
+    {
+      category: "Mutual Funds",
+      items: [
+        { name: "Mutual Fund Positions", isAllowable: true, description: "Concentration haircuts do not apply to mutual fund positions", condition: "No concentration haircut required" }
+      ]
+    },
+    {
+      category: "Other Haircuts",
+      items: [
+        { name: "Money Market Instrument - Invest. Grade", isAllowable: true, description: "Haircut of 1/2%", haircut: "1/2%" },
+        { name: "Money Market Mutual Fund", isAllowable: true, description: "Haircut of 2%", haircut: "2%" },
+        { name: "U.S. Govt. / Agency Security (Net Posit.-H/C increases with maturity)", isAllowable: true, description: "Haircut of 0%-6%", haircut: "0%-6%" },
+        { name: "Municipal Bond - Invest. Grade (H/C increases with maturity)", isAllowable: true, description: "Haircut of 1%-7%", haircut: "1%-7%" },
+        { name: "Corporate Bond - Invest. Grade (H/C increases with maturity)", isAllowable: true, description: "Haircut of 2%-9%", haircut: "2%-9%" },
+        { name: "Preferred Stock / Broad-Based ETF - Invest. Grade", isAllowable: true, description: "Haircut of 10%", haircut: "10%" },
+        { name: "\"All Other Securities\" - Common Stocks", isAllowable: true, description: "Haircut of 15%", haircut: "15%" },
+        { name: "Haircut the Greater of the Long or Short Position", isAllowable: true, description: "Take a 'Test' figure of 25% of Greater Side; and if Smaller Side exceeds 'Test' figure, take an extra 15% Haircut on excess amount", haircut: "See details" }
+      ]
+    }
+  ];
+
+  let selectedFilter = 'all';
+
+  function filterAssets(filter) {
+    selectedFilter = filter;
+    renderAssets();
+  }
+
+  function renderAssets() {
+    const assetList = document.getElementById('assetList');
+    assetList.innerHTML = '';
+
+    assets.flatMap(category => category.items).filter(asset => {
+      if (selectedFilter === 'allowable') return asset.isAllowable;
+      if (selectedFilter === 'non-allowable') return !asset.isAllowable;
+      return true;
+    }).forEach(asset => {
+      const assetElement = document.createElement('div');
+      assetElement.className = 'asset';
+      assetElement.innerHTML = `<strong class="${asset.isAllowable ? 'allowable' : 'non-allowable'}">${asset.name}</strong>`;
+      assetElement.onclick = () => showDetails(asset);
+      assetList.appendChild(assetElement);
+    });
+  }
+
+  function showDetails(asset) {
+    const assetDetails = document.getElementById('assetDetails');
+    assetDetails.innerHTML = `
+      <h3>${asset.name}</h3>
+      <p><strong>Allowability:</strong> ${asset.isAllowable ? 'Allowable' : 'Non-Allowable'}</p>
+      <p><strong>Description:</strong> ${asset.description}</p>
+      <p><strong>Haircut:</strong> ${asset.haircut || ''}</p>
+    `;
+  }
+
+  // Initial rendering
+  renderAssets();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .container {
+      font-family: Arial, sans-serif;
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .flow-container {
+      padding: 20px;
+      background: #f8f9fa;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+
+    .calculation-step {
+      background: white;
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 15px 0;
+      transition: all 0.3s ease;
+    }
+
+    .calculation-step:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .step-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .arrow-down {
+      text-align: center;
+      font-size: 24px;
+      color: #6b7280;
+      margin: 10px 0;
+    }
+
+    .input-group {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin: 10px 0;
+    }
+
+    .input-subgroup {
+      margin-left: 20px;
+      border-left: 2px solid #e5e7eb;
+      padding-left: 15px;
+    }
+
+    input {
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      width: 150px;
+    }
+
+    .result-box {
+      background: #f0f9ff;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 10px;
+      border-left: 4px solid #3b82f6;
+    }
+
+    .formula-display {
+      font-family: monospace;
+      background: #f3f4f6;
+      padding: 10px;
+      border-radius: 4px;
+      margin: 10px 0;
+      white-space: pre;
+    }
+
+    .step-result {
+      font-weight: bold;
+      color: #3b82f6;
+    }
+
+    .info-tooltip {
+      position: relative;
+      display: inline-block;
+      margin-left: 8px;
+      cursor: help;
+    }
+
+    .info-tooltip::after {
+      content: "ⓘ";
+      color: #6b7280;
+    }
+
+    .info-tooltip:hover::before {
+      content: attr(data-tooltip);
+      position: absolute;
+      background: #1f2937;
+      color: white;
+      padding: 8px;
+      border-radius: 4px;
+      font-size: 0.85em;
+      width: 200px;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Complete Net Capital Computation</h2>
+
+    <div class="flow-container">
+      <!-- Step 1: Basic Net Worth -->
+      <div class="calculation-step">
+        <div class="step-header">
+          <h3>Step 1: Calculate Net Worth</h3>
+          <span class="step-result" id="netWorthResult">$0</span>
+        </div>
+        <div class="input-group">
+          <label>Total Assets:</label>
+          <input type="number" id="totalAssets" value="1000000" onchange="calculateAll()">
+        </div>
+        <div class="input-group">
+          <label>Total Liabilities:</label>
+          <input type="number" id="totalLiabilities" value="600000" onchange="calculateAll()">
+        </div>
+      </div>
+
+      <div class="arrow-down">↓</div>
+
+      <!-- Step 2: Add Subordinated Loans -->
+      <div class="calculation-step">
+        <div class="step-header">
+          <h3>Step 2: Add Subordinated Loans</h3>
+          <span class="step-result" id="totalAvailableResult">$0</span>
+        </div>
+        <div class="input-group">
+          <label>Subordinated Loans:</label>
+          <input type="number" id="subLoans" value="200000" onchange="calculateAll()">
+          <div class="info-tooltip" data-tooltip="Formal agreements where lender subordinates claim to other creditors"></div>
+        </div>
+      </div>
+
+      <div class="arrow-down">↓</div>
+
+      <!-- Step 3: Deduct Non-allowable Assets -->
+      <div class="calculation-step">
+        <div class="step-header">
+          <h3>Step 3: Deduct Non-allowable Assets</h3>
+          <span class="step-result" id="tentativeNetCapital">$0</span>
+        </div>
+        <div class="input-group">
+          <label>Non-allowable Assets:</label>
+          <input type="number" id="nonAllowable" value="100000" onchange="calculateAll()">
+          <div class="info-tooltip" data-tooltip="Assets not readily convertible to cash"></div>
+        </div>
+      </div>
+
+      <div class="arrow-down">↓</div>
+
+      <!-- Step 4: Haircuts on Allowable Assets -->
+      <div class="calculation-step">
+        <div class="step-header">
+          <h3>Step 4: Apply Haircuts on Allowable Assets</h3>
+          <span class="step-result" id="finalNetCapital">$0</span>
+        </div>
+        <div class="input-group">
+          <label>Securities Portfolio Value:</label>
+          <input type="number" id="securitiesValue" value="300000" onchange="calculateAll()">
+        </div>
+        <div class="input-subgroup">
+          <div class="input-group">
+            <label>Equity Securities Haircut (15%):</label>
+            <input type="number" id="equityHaircut" value="45000" onchange="calculateAll()">
+          </div>
+          <div class="input-group">
+            <label>Debt Securities Haircut (2%):</label>
+            <input type="number" id="debtHaircut" value="6000" onchange="calculateAll()">
+          </div>
+        </div>
+      </div>
+
+      <!-- Final Result -->
+      <div class="result-box">
+        <h3>Final Net Capital Computation</h3>
+        <div id="finalBreakdown"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function calculateAll() {
+      // Get input values
+      const totalAssets = parseFloat(document.getElementById('totalAssets').value) || 0;
+      const totalLiabilities = parseFloat(document.getElementById('totalLiabilities').value) || 0;
+      const subLoans = parseFloat(document.getElementById('subLoans').value) || 0;
+      const nonAllowable = parseFloat(document.getElementById('nonAllowable').value) || 0;
+      const equityHaircut = parseFloat(document.getElementById('equityHaircut').value) || 0;
+      const debtHaircut = parseFloat(document.getElementById('debtHaircut').value) || 0;
+
+      // Calculate steps
+      const netWorth = totalAssets - totalLiabilities;
+      const totalAvailable = netWorth + subLoans;
+      const tentativeNetCap = totalAvailable - nonAllowable;
+      const totalHaircuts = equityHaircut + debtHaircut;
+      const finalNetCapital = tentativeNetCap - totalHaircuts;
+
+      // Update results
+      document.getElementById('netWorthResult').textContent = `$${netWorth.toLocaleString()}`;
+      document.getElementById('totalAvailableResult').textContent = `$${totalAvailable.toLocaleString()}`;
+      document.getElementById('tentativeNetCapital').textContent = `$${tentativeNetCap.toLocaleString()}`;
+      document.getElementById('finalNetCapital').textContent = `$${finalNetCapital.toLocaleString()}`;
+
+      // Update breakdown
+      document.getElementById('finalBreakdown').innerHTML = `
+        <p>Net Worth: $${netWorth.toLocaleString()}</p>
+        <p>+ Subordinated Loans: $${subLoans.toLocaleString()}</p>
+        <p>= Total Available Capital: $${totalAvailable.toLocaleString()}</p>
+        <p>- Non-allowable Assets: $${nonAllowable.toLocaleString()}</p>
+        <p>= Tentative Net Capital: $${tentativeNetCap.toLocaleString()}</p>
+        <p>- Haircuts on Allowable Assets: $${totalHaircuts.toLocaleString()}</p>
+        <p><strong>= Final Net Capital: $${finalNetCapital.toLocaleString()}</strong></p>
+      `;
+    }
+
+    // Initial calculation
+    calculateAll();
+  </script>
+</body>
+</html>

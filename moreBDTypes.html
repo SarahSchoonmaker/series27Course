@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .container {
+      font-family: Arial, sans-serif;
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .broker-types {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .broker-card {
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .broker-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .capital-meter {
+      background: #f3f4f6;
+      height: 20px;
+      border-radius: 10px;
+      margin: 10px 0;
+      overflow: hidden;
+    }
+
+    .capital-fill {
+      height: 100%;
+      background: #3b82f6;
+      width: 0;
+      transition: width 1s ease;
+    }
+
+    .activity-list {
+      margin-top: 15px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .activity-item {
+      display: flex;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid #e5e7eb;
+      font-size: 0.9em;
+    }
+
+    .activity-item:last-child {
+      border-bottom: none;
+    }
+
+    .icon {
+      margin-right: 8px;
+      font-size: 1.2em;
+    }
+
+    .capital-amount {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #1f2937;
+      margin: 10px 0;
+    }
+
+    .broker-title {
+      font-size: 1.1em;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #1f2937;
+      min-height: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Broker-Dealer Categories & Capital Requirements</h2>
+
+    <div class="broker-types">
+      <!-- $100K Broker -->
+      <div class="broker-card">
+        <div class="broker-title">Self-Trading Broker-Dealer</div>
+        <div class="capital-amount">$100,000 Net Capital</div>
+        <div class="capital-meter">
+          <div class="capital-fill" style="width: 100%"></div>
+        </div>
+        <ul class="activity-list">
+          <li class="activity-item">
+            <span class="icon">📈</span>
+            >10 transactions per year for own account
+          </li>
+          <li class="activity-item">
+            <span class="icon">📝</span>
+            Writes/endorses OTC options
+          </li>
+          <li class="activity-item">
+            <span class="icon">❌</span>
+            No exchange-listed options included
+          </li>
+        </ul>
+      </div>
+
+      <!-- $50K Broker -->
+      <div class="broker-card">
+        <div class="broker-title">Fully Disclosed Receiving Broker</div>
+        <div class="capital-amount">$50,000 Net Capital</div>
+        <div class="capital-meter">
+          <div class="capital-fill" style="width: 50%"></div>
+        </div>
+        <ul class="activity-list">
+          <li class="activity-item">
+            <span class="icon">📨</span>
+            Receives & transmits securities
+          </li>
+          <li class="activity-item">
+            <span class="icon">💼</span>
+            Can effect occasional own trades
+          </li>
+          <li class="activity-item">
+            <span class="icon">🔄</span>
+            ≤10 transactions per year
+          </li>
+        </ul>
+      </div>
+
+      <!-- $5K Broker -->
+      <div class="broker-card">
+        <div class="broker-title">Introducing Broker-Dealer</div>
+        <div class="capital-amount">$5,000 Net Capital</div>
+        <div class="capital-meter">
+          <div class="capital-fill" style="width: 5%"></div>
+        </div>
+        <ul class="activity-list">
+          <li class="activity-item">
+            <span class="icon">✉️</span>
+            Only transmits checks to third parties
+          </li>
+          <li class="activity-item">
+            <span class="icon">🤝</span>
+            M&A and partnership activities
+          </li>
+          <li class="activity-item">
+            <span class="icon">📊</span>
+            Can accept mutual fund orders
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Special Notes -->
+    <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-top: 20px;">
+      <h3 style="margin-top: 0;">Special Provisions</h3>
+      <ul style="margin: 0;">
+        <li style="margin-bottom: 10px;">Occasional customer check to introducing broker doesn't trigger $50K requirement if promptly forwarded</li>
+        <li style="margin-bottom: 10px;">Introducing firms can write checks on clearing firm's account with $5K capital if permitted</li>
+        <li>All mutual fund orders must have checks payable to investment company and prompt forwarding</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // Add hover effect to meters
+    document.querySelectorAll('.broker-card').forEach(card => {
+      const meter = card.querySelector('.capital-fill');
+      const initialWidth = meter.style.width;
+      
+      card.addEventListener('mouseenter', () => {
+        meter.style.width = '100%';
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        meter.style.width = initialWidth;
+      });
+    });
+  </script>
+</body>
+</html>
