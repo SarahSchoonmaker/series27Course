@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f0f2f5;
+        }
+
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .flow-container {
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .computation-step {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .step-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            color: #3182ce;
+            font-weight: 500;
+        }
+
+        .arrow-down {
+            text-align: center;
+            font-size: 24px;
+            color: #6b7280;
+            margin: 10px 0;
+        }
+
+        .step-content {
+            padding: 15px;
+            background: #f8fafc;
+            border-radius: 6px;
+            margin-top: 10px;
+        }
+
+        .info-box {
+            background: #ebf8ff;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 10px;
+            border-left: 4px solid #3182ce;
+            color: #2c5282;
+            font-size: 0.95em;
+        }
+
+        .formula {
+            font-family: monospace;
+            background: #f3f4f6;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+            color: #1a202c;
+        }
+
+        .example {
+            color: #4a5568;
+            font-style: italic;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Net Capital Computation Process</h1>
+        <p style="color: #4a5568; margin-bottom: 20px;">
+            The net capital computation follows a systematic process to determine a broker-dealer's liquid capital available to meet obligations.
+        </p>
+
+        <div class="flow-container">
+            <div class="computation-step">
+                <div class="step-header">
+                    <h3>Step 1: Calculate Net Worth</h3>
+                </div>
+                <div class="step-content">
+                    <p>Begin with the basic accounting equation:</p>
+                    <div class="formula">Net Worth = Total Assets - Total Liabilities</div>
+                    <div class="info-box">
+                        Represents the broker-dealer's basic financial position before regulatory adjustments.
+                    </div>
+                </div>
+            </div>
+
+            <div class="arrow-down">↓</div>
+
+            <div class="computation-step">
+                <div class="step-header">
+                    <h3>Step 2: Add Subordinated Loans</h3>
+                </div>
+                <div class="step-content">
+                    <p>Add qualifying subordinated loans to net worth:</p>
+                    <div class="formula">Total Available Capital = Net Worth + Subordinated Loans</div>
+                    <div class="info-box">
+                        Subordinated loans must have formal agreements where lenders subordinate their claims to other creditors.
+                        These loans enhance the firm's capital base for regulatory purposes.
+                    </div>
+                </div>
+            </div>
+
+            <div class="arrow-down">↓</div>
+
+            <div class="computation-step">
+                <div class="step-header">
+                    <h3>Step 3: Deduct Non-allowable Assets</h3>
+                </div>
+                <div class="step-content">
+                    <p>Remove assets not readily convertible to cash:</p>
+                    <div class="formula">Tentative Net Capital = Total Available Capital - Non-allowable Assets</div>
+                    <div class="info-box">
+                        Non-allowable assets typically include:
+                        <ul style="margin-top: 8px;">
+                            <li>Fixed assets</li>
+                            <li>Prepaid expenses</li>
+                            <li>Unsecured receivables</li>
+                            <li>Intangible assets</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="arrow-down">↓</div>
+
+            <div class="computation-step">
+                <div class="step-header">
+                    <h3>Step 4: Apply Haircuts</h3>
+                </div>
+                <div class="step-content">
+                    <p>Apply percentage deductions to allowable securities:</p>
+                    <div class="formula">Final Net Capital = Tentative Net Capital - Securities Haircuts</div>
+                    <div class="info-box">
+                        Common haircut percentages:
+                        <ul style="margin-top: 8px;">
+                            <li>Equity securities: 15%</li>
+                            <li>Corporate debt: 2-9%</li>
+                            <li>U.S. government securities: 0-6%</li>
+                            <li>Municipal securities: 2-7%</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="computation-step" style="background: #f0f9ff;">
+                <div class="step-header">
+                    <h3>Final Net Capital</h3>
+                </div>
+                <div class="step-content">
+                    <p>The resulting amount represents the broker-dealer's liquid capital available to meet obligations and regulatory requirements.</p>
+                    <div class="info-box">
+                        This final figure must meet minimum requirements based on either:
+                        <ul style="margin-top: 8px;">
+                            <li>The basic method (6⅔% of aggregate indebtedness)</li>
+                            <li>The alternative method ($250,000 or 2% of aggregate debit items)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

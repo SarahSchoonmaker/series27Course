@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            background: #f0f2f5;
+            padding: 20px;
+            color: #1a202c;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            color: #1a202c;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+
+        .section-title {
+            color: #2c5282;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            background: #3182ce;
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .info-box {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 4px solid #3182ce;
+        }
+
+        .calculation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .calc-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .calc-title {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .frequency-badge {
+            font-size: 0.85em;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+
+        .daily { 
+            background: #fef2f2;
+            color: #991b1b;
+        }
+
+        .monthly { 
+            background: #fffbeb;
+            color: #92400e;
+        }
+
+        .quarterly { 
+            background: #f0fdf4;
+            color: #166534;
+        }
+
+        .requirement-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .requirement-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #4a5568;
+        }
+
+        .requirement-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0.5rem;
+            color: #3182ce;
+        }
+
+        .note {
+            font-size: 0.9em;
+            color: #718096;
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px dashed #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Understanding Net Capital Requirements</h1>
+
+        <div class="section">
+            <div class="section-title"><span class="icon">1</span>What is Net Capital?</div>
+            <div class="info-box">
+                <p>Net Capital is the broker-dealer's liquid assets minus all liabilities and certain adjustments that reflect potential market and credit risks. It is a measure designed to ensure that broker-dealers maintain sufficient liquid assets to protect customer funds and meet obligations to creditors.</p>
+            </div>
+            <div class="info-box">
+                Key Components:
+                <ul class="requirement-list">
+                    <li>Liquid assets available to meet obligations</li>
+                    <li>Deductions for non-allowable assets</li>
+                    <li>Haircuts on securities positions</li>
+                    <li>Adjustments for market and credit risks</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title"><span class="icon">2</span>Why is Net Capital Calculated?</div>
+            <div class="calculation-grid">
+                <div class="calc-card">
+                    <h3>Customer Protection</h3>
+                    <ul class="requirement-list">
+                        <li>Ensures sufficient funds for customer claims</li>
+                        <li>Protects customer assets during firm stress</li>
+                        <li>Maintains market stability</li>
+                    </ul>
+                </div>
+                <div class="calc-card">
+                    <h3>Regulatory Compliance</h3>
+                    <ul class="requirement-list">
+                        <li>Meets SEC Rule 15c3-1 requirements</li>
+                        <li>Demonstrates financial responsibility</li>
+                        <li>Prevents operational risks</li>
+                    </ul>
+                </div>
+                <div class="calc-card">
+                    <h3>Risk Management</h3>
+                    <ul class="requirement-list">
+                        <li>Monitors financial health</li>
+                        <li>Identifies potential issues early</li>
+                        <li>Maintains business continuity</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title"><span class="icon">3</span>Calculation Frequency Requirements</div>
+            <div class="calculation-grid">
+                <div class="calc-card">
+                    <div class="calc-title">
+                        Clearing Broker-Dealers
+                        <span class="frequency-badge daily">Daily</span>
+                    </div>
+                    <ul class="requirement-list">
+                        <li>Daily net capital computation</li>
+                        <li>Real-time position monitoring</li>
+                        <li>Monthly FOCUS filing</li>
+                        <li>Quarterly financial reports</li>
+                        <li>Annual audited statements</li>
+                    </ul>
+                    <div class="note">
+                        Required for firms with $250,000 minimum net capital
+                    </div>
+                </div>
+
+                <div class="calc-card">
+                    <div class="calc-title">
+                        Introducing Broker-Dealers
+                        <span class="frequency-badge monthly">Monthly</span>
+                    </div>
+                    <ul class="requirement-list">
+                        <li>Monthly computation required</li>
+                        <li>Weekly if under early warning</li>
+                        <li>Quarterly FOCUS filing</li>
+                        <li>Annual audited statements</li>
+                    </ul>
+                    <div class="note">
+                        Required for firms with $50,000 minimum net capital
+                    </div>
+                </div>
+
+                <div class="calc-card">
+                    <div class="calc-title">
+                        Limited Purpose Broker-Dealers
+                        <span class="frequency-badge quarterly">Quarterly</span>
+                    </div>
+                    <ul class="requirement-list">
+                        <li>Monthly computation standard</li>
+                        <li>Quarterly if consistently compliant</li>
+                        <li>Quarterly FOCUS filing</li>
+                        <li>Annual audited statements</li>
+                    </ul>
+                    <div class="note">
+                        Required for firms with $5,000 minimum net capital
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title"><span class="icon">4</span>Special Considerations</div>
+            <div class="info-box">
+                <h3>Early Warning Requirements</h3>
+                <ul class="requirement-list">
+                    <li>Increased monitoring when net capital falls below 120% of required minimum</li>
+                    <li>Immediate notification to regulators required</li>
+                    <li>More frequent calculations may be required</li>
+                </ul>
+            </div>
+            <div class="info-box">
+                <h3>Additional Monitoring Requirements</h3>
+                <ul class="requirement-list">
+                    <li>During periods of market volatility</li>
+                    <li>When experiencing significant trading losses</li>
+                    <li>During material operational changes</li>
+                    <li>When customer complaints increase</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

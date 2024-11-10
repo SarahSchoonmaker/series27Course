@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            background: #f0f2f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+
+        .loan-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .loan-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #3182ce;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .requirements {
+            background: #f1f5f9;
+            padding: 1.25rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .rule-box {
+            background: white;
+            padding: 1.25rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid #e2e8f0;
+        }
+
+        .important-note {
+            background: #fff7ed;
+            border-left: 4px solid #f97316;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .example {
+            background: #f0f9ff;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid #bae6fd;
+        }
+
+        h1 {
+            color: #1e293b;
+            font-size: 2rem;
+        }
+
+        h2 {
+            color: #334155;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            color: #3182ce;
+            margin-bottom: 0.75rem;
+        }
+
+        .requirement-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .requirement-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .requirement-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #3182ce;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Subordinated Loans in Broker-Dealer Operations</h1>
+            <p>Understanding structure, requirements, and implications for net capital</p>
+        </div>
+
+        <div class="section">
+            <h2>Basic Requirements</h2>
+            <div class="requirements">
+                <ul class="requirement-list">
+                    <li>Minimum term of 1 year</li>
+                    <li>Must be in writing</li>
+                    <li>Lender must subordinate claims to other creditors</li>
+                    <li>Explicit acknowledgment of risk in operations</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Types of Subordinated Agreements</h2>
+            <div class="loan-types">
+                <div class="loan-card">
+                    <h3>Cash Subordinated Loan</h3>
+                    <p>Direct cash provided to broker-dealer</p>
+                    <div class="example">
+                        Impact: Direct increase in firm's available capital
+                    </div>
+                </div>
+
+                <div class="loan-card">
+                    <h3>Secured Demand Note</h3>
+                    <p>Collateralized by marketable securities</p>
+                    <div class="example">
+                        Securities pledged to bank with specific valuation rules
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Collateral Requirements</h2>
+            <div class="rule-box">
+                <h3>Equity Securities</h3>
+                <ul class="requirement-list">
+                    <li>Bank lending value: 70% of market value</li>
+                    <li>30% haircut on secured demand note collateral</li>
+                </ul>
+            </div>
+            
+            <div class="rule-box">
+                <h3>Other Securities</h3>
+                <ul class="requirement-list">
+                    <li>Standard net capital haircuts apply</li>
+                    <li>Additional haircuts for concentration</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Important Considerations</h2>
+            <div class="important-note">
+                <h3>Risk Factors</h3>
+                <ul class="requirement-list">
+                    <li>Concentration limits on collateral</li>
+                    <li>Mark-to-market requirements</li>
+                    <li>Regular valuation of collateral</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

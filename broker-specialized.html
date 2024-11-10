@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            background: #f0f2f5;
+            padding: 20px;
+            color: #1a202c;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            color: #1a202c;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-size: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .bd-card {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .bd-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .bd-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .capital-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 500;
+            background: #edf2f7;
+            color: #2c5282;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .requirements {
+            background: white;
+            padding: 1rem;
+            border-radius: 6px;
+            border-left: 4px solid #3182ce;
+        }
+
+        .conditions {
+            background: white;
+            padding: 1rem;
+            border-radius: 6px;
+            border-left: 4px solid #38a169;
+        }
+
+        .activity-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .activity-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #4a5568;
+        }
+
+        .activity-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0.5rem;
+            color: #3182ce;
+        }
+
+        .note {
+            font-size: 0.9em;
+            color: #718096;
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px dashed #e2e8f0;
+        }
+
+        .calculation {
+            font-family: monospace;
+            background: #f1f5f9;
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 0.5rem 0;
+        }
+
+        .formula {
+            color: #2563eb;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Specialized Broker-Dealer Types</h1>
+
+        <!-- Prime Broker Section -->
+        <div class="bd-card">
+            <div class="bd-header">
+                <div class="bd-title">Prime Broker</div>
+                <div class="capital-badge">$1,500,000 Min. Net Capital (Clearing)</div>
+            </div>
+            <div class="content-grid">
+                <div class="requirements">
+                    <h3>Capital Requirements</h3>
+                    <ul class="activity-list">
+                        <li>Clearing Prime Broker: $1,500,000 minimum</li>
+                        <li>Executing Broker: $1,000,000 minimum</li>
+                        <li>Must notify FINRA of prime broker status</li>
+                    </ul>
+                </div>
+                <div class="conditions">
+                    <h3>Services Provided</h3>
+                    <ul class="activity-list">
+                        <li>Execute all trades</li>
+                        <li>Settle all trades</li>
+                        <li>Maintain custody</li>
+                        <li>Provide financing</li>
+                    </ul>
+                    <div class="note">Primarily used by hedge funds for consolidated clearing and financing</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Market Maker Section -->
+        <div class="bd-card">
+            <div class="bd-header">
+                <div class="bd-title">Market Maker</div>
+                <div class="capital-badge">$100,000 Base Min. Net Capital</div>
+            </div>
+            <div class="content-grid">
+                <div class="requirements">
+                    <h3>Capital Requirements</h3>
+                    <ul class="activity-list">
+                        <li>$1,000 per security bid ≤ $5</li>
+                        <li>$2,500 per security bid > $5</li>
+                        <li>Maximum requirement: $1,000,000</li>
+                    </ul>
+                    <div class="calculation">
+                        Example Calculation:<br>
+                        20 positions × $1,000 = $20,000<br>
+                        20 positions × $2,500 = $50,000<br>
+                        Total Required: $70,000
+                    </div>
+                </div>
+                <div class="conditions">
+                    <h3>Position Requirements</h3>
+                    <ul class="activity-list">
+                        <li>25% of market value for long positions</li>
+                        <li>30% of market value for short positions</li>
+                        <li>Early warning at 120% of requirement</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mutual Fund Broker-Dealer -->
+        <div class="bd-card">
+            <div class="bd-header">
+                <div class="bd-title">Mutual Fund Broker-Dealer</div>
+                <div class="capital-badge">$5,000 - $25,000 Net Capital</div>
+            </div>
+            <div class="content-grid">
+                <div class="requirements">
+                    <h3>Capital Requirements</h3>
+                    <ul class="activity-list">
+                        <li>$25,000 if accepting wire orders</li>
+                        <li>$5,000 if subscription-only orders</li>
+                    </ul>
+                </div>
+                <div class="conditions">
+                    <h3>Operating Conditions</h3>
+                    <ul class="activity-list">
+                        <li>All orders through sponsor</li>
+                        <li>No customer fund holding</li>
+                        <li>Wire redemption within 1-3 days</li>
+                    </ul>
+                    <div class="note">Higher capital for wire orders due to temporary fund advances</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reverse Repo Section -->
+        <div class="bd-card">
+            <div class="bd-header">
+                <div class="bd-title">Reverse Repo Requirements</div>
+                <div class="capital-badge">Additional 10% Capital Required</div>
+            </div>
+            <div class="content-grid">
+                <div class="requirements">
+                    <h3>Excess Collateral Thresholds</h3>
+                    <ul class="activity-list">
+                        <li>Treasury securities: 105%</li>
+                        <li>Agency/mortgage-backed: 110%</li>
+                        <li>Other securities: 120%</li>
+                    </ul>
+                </div>
+                <div class="conditions">
+                    <h3>Capital Requirements</h3>
+                    <ul class="activity-list">
+                        <li>10% of excess collateral over thresholds</li>
+                        <li>Based on market value of securities</li>
+                        <li>Calculated per agreement type</li>
+                    </ul>
+                    <div class="note">Prevents misuse of excess collateral</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regulatory Capital Requirements</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #f0f2f5;
+        }
+
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e2e8f0;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .nav-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.75rem;
+            transition: all 0.2s;
+        }
+
+        .nav-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            color: #2d3748;
+            margin-bottom: 1.25rem;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .description {
+            color: #4a5568;
+            margin-bottom: 1.25rem;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.875rem;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 0.875rem 1.5rem;
+            background: #3182ce;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.2s;
+            text-align: center;
+        }
+
+        .nav-link:hover {
+            background: #2c5282;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-badge {
+            display: inline-block;
+            padding: 0.375rem 0.75rem;
+            background: #ebf8ff;
+            color: #2b6cb0;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .key-points {
+            margin: 1rem 0 1.5rem;
+            padding-left: 1.5rem;
+            font-size: 0.95rem;
+            color: #4a5568;
+        }
+
+        .key-points li {
+            margin-bottom: 0.75rem;
+            position: relative;
+        }
+
+        .key-points li::before {
+            content: "•";
+            position: absolute;
+            left: -1rem;
+            color: #3182ce;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.25rem;
+            }
+            
+            .nav-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            h2 {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Regulatory Capital Requirements</h1>
+        
+        <div class="nav-grid">
+            <!-- Net Capital Section -->
+            <div class="nav-card">
+                <h2>
+                    Net Capital
+                    <span class="info-badge">Rule 15c3-1</span>
+                </h2>
+                <p class="description">The SEC's uniform net capital rule establishing minimum capital requirements.</p>
+                <ul class="key-points">
+                    <li>Core capital requirements</li>
+                    <li>Asset classifications</li>
+                    <li>Haircut computations</li>
+                </ul>
+                <div class="nav-links">
+                    <a href="net-capital-fundamentals.html" class="nav-link">What is Net Capital?</a>
+                    <a href="net-capital-overview.html" class="nav-link">Net Capital Overview</a>
+                    <a href="net-capital-types.html" class="nav-link">Types of Broker Dealer & Net Cap</a>
+                    <a href="net-capital-steps.html" class="nav-link">Steps to Calculate Net Cap</a>
+                    <a href="net-cap-allow2.html" class="nav-link">Allowable Items</a>
+                    <a href="netCapStepsExample.html" class="nav-link">Net Cap Example</a>
+                    <a href="haircut-summary.html" class="nav-link">Haircut Summary</a>
+                </div>
+            </div>
+
+             <!-- Alternative Net Capital Section -->
+             <div class="nav-card">
+                <h2>
+                    Alternative Net Capital
+                    <span class="info-badge">ANC</span>
+                </h2>
+                <p class="description">Alternative computation methods for qualifying broker-dealers.</p>
+                <ul class="key-points">
+                    <li>2% debit item standard</li>
+                    <li>Risk modeling requirements</li>
+                    <li>Qualification criteria</li>
+                </ul>
+                <div class="nav-links">
+                    <a href="alt-net-capital-rules.html" class="nav-link">AI Overview</a>
+                    
+                    
+                </div>
+            </div>
+
+
+            <!-- Aggregate Indebtedness Section -->
+            <div class="nav-card">
+                <h2>
+                    Aggregate Indebtedness
+                    <span class="info-badge">Basic Method</span>
+                </h2>
+                <p class="description">Standard method for computing minimum net capital based on aggregate indebtedness.</p>
+                <ul class="key-points">
+                    <li>AI ratio calculations</li>
+                    <li>Early warning levels</li>
+                    <li>Compliance thresholds</li>
+                </ul>
+                <div class="nav-links">
+                    <a href="ai-nc-calc-guide.html" class="nav-link">AI Overview</a>
+                    <a href="ai-nc-visualization.html" class="nav-link">AI Visualization</a>
+                    <a href="ai-net-capital-rules.html" class="nav-link">AI Rules</a>
+                    <a href="comprehensive-ai-classification.html" class="nav-link">AI Classification</a>
+                    
+                </div>
+            </div>
+
+           
+            <!-- Broker Dealers Section -->
+            <div class="nav-card">
+                <h2>
+                    Broker Dealers
+                    <span class="info-badge">BD Guide</span>
+                </h2>
+                <p class="description">Comprehensive guide to broker-dealer requirements and obligations.</p>
+                <ul class="key-points">
+                    <li>Registration requirements</li>
+                    <li>Compliance obligations</li>
+                    <li>Reporting standards</li>
+                </ul>
+                <div class="nav-links">
+                    <a href="broker-types-expanded.html" class="nav-link">Broker-Dealer Types</a>
+                    <a href="broker-specialized.html" class="nav-link">Specialized Broker-Dealers</a>
+                    <a href="broker-mutual-fund.html" class="nav-link">Mutual Fund Broker-Dealer</a>
+                    <a href="broker-dealer-operations.html" class="nav-link">Broker-Dealer Rules</a>
+                </div>
+            </div>
+
+            <!-- Subordination Loans Section -->
+            <div class="nav-card">
+                <h2>
+                    Subordination Loans
+                    <span class="info-badge">Agreements</span>
+                </h2>
+                <p class="description">Requirements for subordinated loans and agreements in net capital computations.</p>
+                <ul class="key-points">
+                    <li>Agreement types</li>
+                    <li>Regulatory approvals</li>
+                    <li>Term requirements</li>
+                </ul>
+                <div class="nav-links">
+                    <a href="subordinated-loans.html" class="nav-link">Overview</a>
+                    <a href="subordinated-loan-guide.html" class="nav-link">Subordinated Loan Rules</a>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

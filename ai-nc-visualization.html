@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<style>
+  .container {
+    font-family: system-ui, -apple-system, sans-serif;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+  }
+  
+  .diagram {
+    position: relative;
+    height: 400px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    margin: 20px 0;
+    overflow: hidden;
+    background: #f8fafc;
+  }
+  
+  .pillar {
+    position: absolute;
+    bottom: 0;
+    width: 120px;
+    transition: height 0.8s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .pillar-label {
+    margin-top: -25px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .nc-pillar {
+    left: 100px;
+    height: 100px;
+    background: #3b82f6;
+  }
+  
+  .ai-pillar-first {
+    left: 300px;
+    height: 200px;
+    background: #93c5fd;
+  }
+  
+  .ai-pillar-after {
+    left: 500px;
+    height: 300px;
+    background: #93c5fd;
+  }
+  
+  .ratio-line {
+    position: absolute;
+    left: 50px;
+    right: 50px;
+    border-top: 2px dashed #64748b;
+    color: #64748b;
+    font-weight: bold;
+  }
+  
+  .rule-card {
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  
+  .highlight {
+    color: #2563eb;
+    font-weight: bold;
+  }
+
+  @keyframes pulse {
+    0% { opacity: 0.7; }
+    50% { opacity: 1; }
+    100% { opacity: 0.7; }
+  }
+  
+  .animate-pulse {
+    animation: pulse 2s infinite;
+  }
+</style>
+
+<div class="container">
+  <h1>Aggregate Indebtedness to Net Capital Ratios</h1>
+  
+  <div class="diagram">
+    <div class="pillar nc-pillar">
+      <div class="pillar-label">Net Capital (NC)</div>
+    </div>
+    
+    <div class="pillar ai-pillar-first">
+      <div class="pillar-label">AI (First Year)<br>8:1 Max</div>
+    </div>
+    
+    <div class="pillar ai-pillar-after">
+      <div class="pillar-label">AI (After)<br>15:1 Max</div>
+    </div>
+    
+    <div class="ratio-line" style="bottom: 150px;">
+      8:1 First Year Maximum
+    </div>
+    
+    <div class="ratio-line" style="bottom: 250px;">
+      15:1 After First Year Maximum
+    </div>
+  </div>
+
+  <div class="rule-card">
+    <h3>Key Rules</h3>
+    <ul>
+      <li><span class="highlight">First Year of Operations:</span> Maximum AI/NC ratio = 8:1</li>
+      <li><span class="highlight">After First Year:</span> Maximum AI/NC ratio = 15:1</li>
+      <li><span class="highlight">Clearing Firms:</span> Minimum $250,000 net capital required</li>
+    </ul>
+  </div>
+
+  <div class="rule-card">
+    <h3>Aggregate Indebtedness Includes:</h3>
+    <ul>
+      <li>All unsecured liabilities</li>
+      <li>All customer-related liabilities</li>
+      <li>All monies owed if broker-dealer liquidates</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+function animatePillars() {
+  const pillars = document.querySelectorAll('.pillar');
+  pillars.forEach(pillar => {
+    pillar.style.height = '0';
+    setTimeout(() => {
+      pillar.style.height = pillar.classList.contains('nc-pillar') ? '100px' 
+        : pillar.classList.contains('ai-pillar-first') ? '200px' 
+        : '300px';
+    }, 100);
+  });
+}
+
+// Initial animation
+animatePillars();
+
+// Repeat animation every 5 seconds
+setInterval(animatePillars, 5000);
+</script>
+
+</html>

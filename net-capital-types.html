@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            background: #f0f2f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            color: #1a202c;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        .bd-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 20px 0;
+            background: white;
+        }
+
+        .bd-table th {
+            background: #2c5282;
+            color: white;
+            font-weight: 500;
+            padding: 16px;
+            text-align: left;
+            font-size: 1rem;
+        }
+
+        .bd-table th:first-child {
+            border-top-left-radius: 8px;
+        }
+
+        .bd-table th:last-child {
+            border-top-right-radius: 8px;
+        }
+
+        .bd-table td {
+            padding: 16px;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: top;
+        }
+
+        .bd-table tr:hover {
+            background: #f8fafc;
+        }
+
+        .bd-table tr:last-child td:first-child {
+            border-bottom-left-radius: 8px;
+        }
+
+        .bd-table tr:last-child td:last-child {
+            border-bottom-right-radius: 8px;
+        }
+
+        .type-cell {
+            width: 20%;
+            font-weight: 500;
+        }
+
+        .requirement-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: 500;
+            margin-top: 8px;
+        }
+
+        .high { 
+            background: #fef2f2;
+            color: #991b1b;
+            border: 1px solid #fee2e2;
+        }
+
+        .medium { 
+            background: #fffbeb;
+            color: #92400e;
+            border: 1px solid #fef3c7;
+        }
+
+        .low { 
+            background: #f0fdf4;
+            color: #166534;
+            border: 1px solid #dcfce7;
+        }
+
+        .activity-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .activity-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: #4a5568;
+        }
+
+        .activity-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #3182ce;
+        }
+
+        .type-title {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .capital-requirements {
+            font-weight: 500;
+            color: #2c5282;
+            margin-top: 8px;
+        }
+
+        .activity-section {
+            background: #f8fafc;
+            padding: 12px;
+            border-radius: 6px;
+            margin-top: 8px;
+        }
+
+        .permission-list {
+            color: #047857;
+        }
+
+        .restriction-list {
+            color: #dc2626;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Broker-Dealer Types and Net Capital Requirements</h1>
+        
+        <table class="bd-table">
+            <thead>
+                <tr>
+                    <th>Broker-Dealer Type</th>
+                    <th>Core Activities</th>
+                    <th>Requirements & Permissions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="type-cell">
+                        <div class="type-title">Clearing Broker-Dealer</div>
+                        <span class="requirement-badge high">$250,000 Minimum</span>
+                        <div class="capital-requirements">
+                            Greater of:
+                            • $250,000
+                            • 2% of aggregate debit items
+                        </div>
+                    </td>
+                    <td>
+                        <ul class="activity-list">
+                            <li>Carries customer accounts</li>
+                            <li>Accepts customer funds and securities</li>
+                            <li>Sends trade confirmations</li>
+                            <li>Issues customer statements</li>
+                            <li>Maintains customer records</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <div class="activity-section">
+                            <div class="permission-list">
+                                <strong>Permitted Activities:</strong>
+                                <ul class="activity-list">
+                                    <li>Full underwriting participation</li>
+                                    <li>Can act as syndicate member</li>
+                                    <li>May collect customer funds</li>
+                                    <li>Unlimited trading activities</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="type-cell">
+                        <div class="type-title">Fully Disclosed Broker-Dealer</div>
+                        <span class="requirement-badge medium">$50,000 Standard</span>
+                        <div class="capital-requirements">
+                            Increases to $100,000 for:
+                            • >10 proprietary trades
+                            • Writing OTC options
+                        </div>
+                    </td>
+                    <td>
+                        <ul class="activity-list">
+                            <li>Does not hold customer funds</li>
+                            <li>Uses clearing firm agreement</li>
+                            <li>Processes trades through clearing firm</li>
+                            <li>Takes customer orders</li>
+                            <li>Provides investment advice</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <div class="activity-section">
+                            <div class="permission-list">
+                                <strong>Permitted:</strong>
+                                <ul class="activity-list">
+                                    <li>Accept mutual fund orders</li>
+                                    <li>Best efforts underwriting</li>
+                                    <li>Limited proprietary trading</li>
+                                </ul>
+                            </div>
+                            <div class="restriction-list">
+                                <strong>Restrictions:</strong>
+                                <ul class="activity-list">
+                                    <li>No customer fund holding</li>
+                                    <li>No firm commitment underwriting</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="type-cell">
+                        <div class="type-title">Limited Purpose Broker-Dealer</div>
+                        <span class="requirement-badge low">$5,000 Minimum</span>
+                        <div class="capital-requirements">
+                            Fixed requirement for specific activities
+                        </div>
+                    </td>
+                    <td>
+                        <ul class="activity-list">
+                            <li>Limited partnerships</li>
+                            <li>M&A advisory services</li>
+                            <li>Private placements</li>
+                            <li>No customer funds/securities</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <div class="activity-section">
+                            <div class="permission-list">
+                                <strong>Permitted:</strong>
+                                <ul class="activity-list">
+                                    <li>Best efforts syndicate participation</li>
+                                    <li>M&A advisory activities</li>
+                                </ul>
+                            </div>
+                            <div class="restriction-list">
+                                <strong>Restrictions:</strong>
+                                <ul class="activity-list">
+                                    <li>No securities transactions</li>
+                                    <li>No customer fund handling</li>
+                                    <li>No firm commitment underwriting</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

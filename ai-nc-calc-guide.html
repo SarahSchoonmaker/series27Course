@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<style>
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.5;
+    padding: 20px;
+  }
+
+  .section {
+    margin-bottom: 30px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 20px;
+  }
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    font-size: 14px;
+  }
+
+  .table th, .table td {
+    padding: 8px;
+    border: 1px solid #e5e7eb;
+    text-align: right;
+  }
+
+  .table th:first-child, .table td:first-child {
+    text-align: left;
+  }
+
+  .table tr:nth-child(even) {
+    background: #f8fafc;
+  }
+
+  .header {
+    background: #f1f5f9;
+    font-weight: bold;
+  }
+
+  .total-row {
+    font-weight: bold;
+    background: #e5e7eb !important;
+  }
+
+  .calculation {
+    background: #dbeafe;
+    padding: 15px;
+    border-radius: 6px;
+    margin: 10px 0;
+  }
+
+  .title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #1f2937;
+  }
+
+  .note {
+    background: #fef3c7;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 10px 0;
+    font-size: 14px;
+  }
+</style>
+
+<div class="section">
+  <div class="title">Aggregate Indebtedness Classification & Net Capital Calculation</div>
+
+  <table class="table">
+    <tr class="header">
+      <th>Item #</th>
+      <th>Description</th>
+      <th>Amount</th>
+      <th>AI</th>
+      <th>Non-AI</th>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>Customer Control</td>
+      <td>500,000</td>
+      <td>500,000</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>Trading Account - Short Sales</td>
+      <td>325,000</td>
+      <td></td>
+      <td>325,000</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>Mortgage Payable</td>
+      <td>200,000</td>
+      <td></td>
+      <td>200,000</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>Fails to Receive - Firm Unsold</td>
+      <td>250,000</td>
+      <td></td>
+      <td>250,000</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>Fails to Receive - Firm Sold</td>
+      <td>100,000</td>
+      <td>100,000</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>Fails to Receive - Customer</td>
+      <td>150,000</td>
+      <td>150,000</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>Short Securities Count Differences</td>
+      <td>200,000</td>
+      <td>200,000</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>Bank Loan - Firm Collateral</td>
+      <td>150,000</td>
+      <td></td>
+      <td>150,000</td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>Bank Loan - Customer Collateral</td>
+      <td>50,000</td>
+      <td>50,000</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>Stock Loaned - Firm</td>
+      <td>100,000</td>
+      <td></td>
+      <td>100,000</td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>Stock Loaned - Customer</td>
+      <td>50,000</td>
+      <td>50,000</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>31</td>
+      <td>Subordinated Loan</td>
+      <td>250,000</td>
+      <td></td>
+      <td>250,000</td>
+    </tr>
+    <tr class="total-row">
+      <td colspan="3">Total Aggregate Indebtedness Items</td>
+      <td>1,050,000</td>
+      <td>1,275,000</td>
+    </tr>
+  </table>
+
+  <div class="calculation">
+    <strong>Special Reserve Adjustment:</strong><br>
+    Total AI: $1,050,000<br>
+    Less: Special Reserve: ($100,000)<br>
+    Aggregate Indebtedness for Ratio Test: $950,000
+  </div>
+</div>
+
+<div class="section">
+  <div class="title">Net Capital Calculation</div>
+  
+  <table class="table">
+    <tr>
+      <td>Net Worth</td>
+      <td>$1,400,000</td>
+    </tr>
+    <tr>
+      <td>+ Subordinated Loans</td>
+      <td>$250,000</td>
+    </tr>
+    <tr class="total-row">
+      <td>Total Available Capital</td>
+      <td>$1,650,000</td>
+    </tr>
+    <tr>
+      <td>- Non-allowable Assets</td>
+      <td>($389,000)</td>
+    </tr>
+    <tr>
+      <td>- Additional Charges</td>
+      <td>($30,400)</td>
+    </tr>
+    <tr class="total-row">
+      <td>Tentative Net Capital</td>
+      <td>$1,230,600</td>
+    </tr>
+    <tr>
+      <td>- H/Cs Securities Positions</td>
+      <td>($183,750)</td>
+    </tr>
+    <tr class="total-row">
+      <td>Net Capital</td>
+      <td>$1,046,850</td>
+    </tr>
+  </table>
+
+  <div class="calculation">
+    <strong>Final AI/NC Ratio Calculation:</strong><br>
+    AI/NC = $950,000 / $1,046,850 = 0.907
+  </div>
+
+  <div class="note">
+    <strong>Result:</strong> Ratio of 0.907:1 is well below maximum ratios:<br>
+    - First year of operations: 8:1<br>
+    - Subsequent years: 15:1
+  </div>
+</div>
+</html>

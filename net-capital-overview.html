@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .container {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .section {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+
+        h1, h2 {
+            color: #2d3748;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .purpose-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .purpose-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .frequency-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        .frequency-table th,
+        .frequency-table td {
+            padding: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: left;
+        }
+
+        .frequency-table th {
+            background: #f1f5f9;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .requirement-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: 500;
+            margin-left: 8px;
+        }
+
+        .high { background: #fee2e2; color: #991b1b; }
+        .medium { background: #fef3c7; color: #92400e; }
+        .low { background: #dcfce7; color: #166534; }
+
+        .key-point {
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-left: 4px solid #3b82f6;
+            border-radius: 4px;
+        }
+
+        .note {
+            font-size: 0.9em;
+            color: #64748b;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>The Net Capital Rule (Rule 15c3-1)</h1>
+        
+        <div class="section">
+            <h2>What is the Net Capital Rule?</h2>
+            <p>The Net Capital Rule (SEC Rule 15c3-1) is a financial responsibility rule that requires broker-dealers to maintain minimum levels of liquid assets against their liabilities to protect customers and creditors.</p>
+
+            <div class="purpose-grid">
+                <div class="purpose-card">
+                    <h3>Core Objectives</h3>
+                    <ul>
+                        <li>Protect customer assets</li>
+                        <li>Ensure broker-dealer financial stability</li>
+                        <li>Maintain market integrity</li>
+                        <li>Provide early warning of financial difficulties</li>
+                    </ul>
+                </div>
+                
+                <div class="purpose-card">
+                    <h3>Key Requirements</h3>
+                    <ul>
+                        <li>Maintain minimum liquid capital</li>
+                        <li>Calculate net capital accurately</li>
+                        <li>Monitor financial health continuously</li>
+                        <li>Report deficiencies promptly</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Calculation Frequency Requirements</h2>
+            <table class="frequency-table">
+                <thead>
+                    <tr>
+                        <th>Broker-Dealer Type</th>
+                        <th>Minimum Requirement</th>
+                        <th>Calculation Frequency</th>
+                        <th>Filing Requirements</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Clearing Broker-Dealers
+                            <span class="requirement-badge high">$250,000</span>
+                        </td>
+                        <td>Greater of:
+                            <ul>
+                                <li>$250,000</li>
+                                <li>2% of aggregate debit items</li>
+                                <li>6⅔% of aggregate indebtedness</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Daily net capital computation</li>
+                                <li>Continuous monitoring</li>
+                                <li>Real-time position tracking</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Monthly FOCUS filing</li>
+                                <li>Quarterly Financial Reports</li>
+                                <li>Annual Audited Statements</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Introducing Broker-Dealers
+                            <span class="requirement-badge medium">$50,000</span>
+                        </td>
+                        <td>Greater of:
+                            <ul>
+                                <li>$50,000</li>
+                                <li>6⅔% of aggregate indebtedness</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Monthly computation required</li>
+                                <li>More frequent if near minimum</li>
+                                <li>Weekly if under early warning</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Quarterly FOCUS filing</li>
+                                <li>Annual Audited Statements</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Limited Purpose Broker-Dealers
+                            <span class="requirement-badge low">$5,000</span>
+                        </td>
+                        <td>Greater of:
+                            <ul>
+                                <li>$5,000</li>
+                                <li>6⅔% of aggregate indebtedness</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Monthly computation required</li>
+                                <li>Quarterly if consistently above minimums</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Quarterly FOCUS filing</li>
+                                <li>Annual Audited Statements</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Additional Monitoring Requirements</h2>
+            
+            <div class="key-point">
+                <strong>Early Warning Requirements</strong>
+                <p>Must notify SEC if net capital falls below 120% of required minimum</p>
+                <div class="note">Triggers more frequent calculations and reporting</div>
+            </div>
+
+            <div class="key-point">
+                <strong>Special Circumstances</strong>
+                <p>More frequent calculations required during:</p>
+                <ul>
+                    <li>Market volatility</li>
+                    <li>Significant trading losses</li>
+                    <li>Material operational changes</li>
+                    <li>Customer complaint increases</li>
+                </ul>
+            </div>
+
+            <div class="key-point">
+                <strong>Technology Requirements</strong>
+                <p>Firms must maintain systems capable of:</p>
+                <ul>
+                    <li>Real-time position monitoring</li>
+                    <li>Automated net capital calculations</li>
+                    <li>Early warning threshold alerts</li>
+                    <li>Regulatory reporting generation</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

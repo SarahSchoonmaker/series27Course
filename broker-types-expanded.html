@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .container {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .broker-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .broker-card {
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .broker-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .capital-meter {
+            background: #f3f4f6;
+            height: 20px;
+            border-radius: 10px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+
+        .capital-fill {
+            height: 100%;
+            background: #3b82f6;
+            width: 0;
+            transition: width 1s ease;
+        }
+
+        .activity-list {
+            margin-top: 15px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: start;
+            padding: 8px 0;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        .icon {
+            margin-right: 8px;
+            font-size: 1.2em;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .capital-amount {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #1f2937;
+            margin: 10px 0;
+        }
+
+        .broker-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #1f2937;
+            min-height: 40px;
+            padding-right: 90px;
+            position: relative;
+        }
+
+        .capital-badge {
+            position: absolute;
+            right: 0;
+            top: 0;
+            background: #ebf8ff;
+            color: #2b6cb0;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+        }
+
+        .special-note {
+            background: #f8fafc;
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #4a5568;
+            border-left: 3px solid #3b82f6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Comprehensive Broker-Dealer Categories & Requirements</h2>
+
+        <div class="broker-types">
+            <!-- Clearing Broker -->
+            <div class="broker-card">
+                <div class="broker-title">
+                    Clearing (General Securities) Broker-Dealer
+                    <span class="capital-badge">$250,000</span>
+                </div>
+                <div class="capital-meter">
+                    <div class="capital-fill" style="width: 100%"></div>
+                </div>
+                <ul class="activity-list">
+                    <li class="activity-item">
+                        <span class="icon">💼</span>
+                        Carries customer accounts and accepts funds/securities
+                    </li>
+                    <li class="activity-item">
+                        <span class="icon">📨</span>
+                        Sends trade confirmations to customers
+                    </li>
+                    <li class="activity-item">
+                        <span class="icon">📊</span>
+                        Issues required statements
+                    </li>
+                    <li class="activity-item">
+                        <span class="icon">🏦</span>
+                        Can participate in firm commitment underwritings
+                    </li>
+                </ul>
+                <div class="special-note">
+                    Can deposit customer monies to general account
+                </div>
+            </div>
+
+            <!-- Fully Disclosed Broker -->
+            <div class="broker-card">
+                <div class="broker-title">
+                    Fully Disclosed Broker-Dealer
+                    <span class="capital-badge">$50,000</span>
+                </div>
+                <div class="capital-meter">
+                    <div class="capital-fill" style="width: 50%"></div>
+                </div>
+                <ul class="activity-list">
+                    <li class="activity-item">
+                        <span class="icon">🤝</span>
+                        Uses clearing agreement with clearing firm
+                    </li>
+                    <li class="activity-item">
+                        <span class="icon">📈</span>
+                        Limited to 10 proprietary trades annually
+                    </li>
+                    <li class="activity-item">
+                        <span class="icon">📋</span>
+                        Can join best efforts underwritings
+                    </li>
+                </ul>
+                <div class="special-note">
+                    $100,000 required if >10 transactions or writing OTC options
+                </div>
+            </div>
+
+            <!-- Market Maker -->
+            <div class="broker-card">
+                <div class="broker-title">
+                    Market Maker
+                    <span class="capital-badge">$100,000</span>
+                </div>
+                <div class="capital-meter">
+                    <div class="capital-fill" style="width: 75%"></div>
+                </div>
+                <ul class="activity-list">
+                    <li class="activity-item">
+                        <span class="icon">💹</span>
+                        $1,000 per security bid ≤ $5
+                    </li>
+                    <li class="activity-item">
+                        <span class="icon">📊</span>
+                        $2,500 per security bid > $5
+                    </li>
+                    <li class="activity-item">
+                        <span class="icon">⚖️</span>
+                        25% long position/30% short position requirements
+                    </li>
+                </ul>
+                <div class="special-note">
+                    Maximum requirement capped at $1,000,000
+                </div>
+            </div>
+
+            <!-- Mutual Fund Broker -->
+            <div class="broker-card">
+                <div class="broker-title">
+                    Mutual Fund Broker-Dealer
+                    <span class="capital-badge">$25,000</span>
+                </div>
+                <div class="capital-meter">
+                    <div class="capital-fill" style="width: 25%"></div>
+                </div>
+                <ul class="activity-list">
+                    <li class="activity-item">
+                        <span class="icon">💸</span>
+                        $25,000 if accepting wire orders
+                    </li>
+                    <li class="activity-item">
+                        <span class="icon">📝</span>
+                        $5,000 if subscription-only
+                    </li>
+                    <li class="activity-item">
+                        <span class="icon">🔄</span>
+                        Must promptly forward all funds
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Limited Purpose BD -->
+            <div class="broker-card">
+                <div class="broker-title">
+                    Limited Purpose Broker-Dealer
+                    <span class="capital-badge">$5,000</span>
+                </div>
+                <div class="capital-meter">
+                    <div class="capital-fill" style="width: 10%"></div>
+                </div>
+                <ul class="activity-list">
+                    <li class="activity-item">
+                        <span class="icon">🤝</span>
+                        M&A and partnership activities only
+                    </li>
+                    <li class="activity-item">
+                        <span class="icon">📑</span>
+                        No customer funds/securities
+                    </li>
+                    <li class="activity-item">
+                        <span class="icon">✨</span>
+                        Can join best efforts syndicates
+                    </li>
+                </ul>
+                <div class="special-note">
+                    Cannot participate in firm commitment underwritings
+                </div>
+            </div>
+            
+            <!-- Prime Broker -->
+            <div class="broker-card">
+                <div class="broker-title">
+                    Prime Broker
+                    <span class="capital-badge">$1.5M</span>
+                </div>
+                <div class="capital-meter">
+                    <div class="capital-fill" style="width: 100%"></div>
+                </div>
+                <ul class="activity-list">
+                    <li class="activity-item">
+                        <span class="icon">🏛️</span>
+                        Provides financing and custody
+                    </li>
+                    <li class="activity-item">
+                        <span class="icon">📈</span>
+                        Executes and settles trades
+                    </li>
+                    <li class="activity-item">
+                        <span class="icon">🔄</span>
+                        Handles hedge fund relationships
+                    </li>
+                </ul>
+                <div class="special-note">
+                    Executing brokers require $1,000,000 minimum
+                </div>
+            </div>
+        </div>
+
+        <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-top: 20px;">
+            <h3 style="margin-top: 0;">Important Notes</h3>
+            <ul style="margin: 0;">
+                <li style="margin-bottom: 10px;">Introducing firms can write clearing firm account checks with $5,000 capital if permitted</li>
+                <li style="margin-bottom: 10px;">Occasional customer checks to introducing broker don't trigger higher requirements if promptly forwarded</li>
+                <li>All mutual fund payments must be made directly to investment companies</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.broker-card').forEach(card => {
+            const meter = card.querySelector('.capital-fill');
+            const initialWidth = meter.style.width;
+            
+            card.addEventListener('mouseenter', () => {
+                meter.style.width = '100%';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                meter.style.width = initialWidth;
+            });
+        });
+    </script>
+</body>
+</html>

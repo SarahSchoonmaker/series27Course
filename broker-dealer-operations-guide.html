@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<style>
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.5;
+    padding: 20px;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+  }
+
+  .alert {
+    background: #fee2e2;
+    border-left: 4px solid #dc2626;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 4px;
+  }
+
+  .info {
+    background: #dbeafe;
+    border-left: 4px solid #2563eb;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 4px;
+  }
+
+  .requirements {
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    padding: 15px;
+    margin: 10px 0;
+  }
+
+  .threshold-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+  }
+
+  .threshold-table th, .threshold-table td {
+    padding: 8px;
+    border: 1px solid #e5e7eb;
+    text-align: left;
+  }
+
+  .threshold-table th {
+    background: #f8fafc;
+  }
+
+  .title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #1f2937;
+  }
+</style>
+
+<div class="container">
+  <div class="section">
+    <div class="title">Business Activity Restrictions</div>
+    
+    <table class="threshold-table">
+      <tr>
+        <th>Condition</th>
+        <th>Business Reduction Required</th>
+        <th>Business Expansion Prohibited</th>
+      </tr>
+      <tr>
+        <td>Net Capital Ratio</td>
+        <td>< 125% of minimum</td>
+        <td>< 150% of minimum</td>
+      </tr>
+      <tr>
+        <td>AI/NC Ratio</td>
+        <td>> 12:1</td>
+        <td>> 10:1</td>
+      </tr>
+      <tr>
+        <td>Alternative Method</td>
+        <td>< 4% of debits</td>
+        <td>< 5% of debits</td>
+      </tr>
+    </table>
+
+    <div class="info">
+      <strong>15 Business Day Rule:</strong> Conditions must exist for more than 15 consecutive business days before FINRA imposes requirements.
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="title">Broker-Dealer Solvency</div>
+    
+    <div class="alert">
+      <strong>Must Cease Business and Notify Regulators If:</strong>
+      <ul>
+        <li>Placed in voluntary/involuntary bankruptcy</li>
+        <li>Trustee/receiver appointed</li>
+        <li>General assignment for creditors' benefit</li>
+        <li>Admission of insolvency</li>
+        <li>Unable to compute Net Capital or Customer Protection Rule compliance</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="title">Expense Sharing Requirements</div>
+    
+    <div class="requirements">
+      <strong>Requirements to Exclude from Net Capital:</strong>
+      <ol>
+        <li>Written agreement with parent company</li>
+        <li>Third party written agreement of non-liability</li>
+        <li>No indication of broker-dealer liability</li>
+        <li>Not a GAAP liability of broker-dealer</li>
+        <li>Third party has adequate independent resources</li>
+      </ol>
+    </div>
+
+    <div class="info">
+      <strong>Documentation Requirements:</strong>
+      <ul>
+        <li>Record ALL expense sharing agreements</li>
+        <li>Maintain allocation records</li>
+        <li>File notice with FINRA including agreement date and parties</li>
+        <li>Provide agreement copy to DEA upon request</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="title">Capital Withdrawal Rules</div>
+    
+    <div class="alert">
+      <strong>Temporary Capital Contributions:</strong>
+      <ul>
+        <li>Withdrawable capital counts as liability</li>
+        <li>Capital intended for withdrawal within 1 year is liability</li>
+        <li>Customer contributions = AI</li>
+        <li>Partner/owner contributions ≠ AI</li>
+      </ul>
+    </div>
+
+    <div class="requirements">
+      <strong>Withdrawal Restrictions:</strong>
+      <ul>
+        <li>SEC can block withdrawals for 20 business days</li>
+        <li>FINRA permission required for withdrawal within 1 year</li>
+        <li>Withdrawn capital within 1 year requires reclassification</li>
+        <li>Temporary injections rarely approved for capital base</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="title">Additional Operational Requirements</div>
+    
+    <div class="info">
+      <strong>Financial Difficulties Triggers:</strong>
+      <ul>
+        <li>Falling capital levels</li>
+        <li>Books and records not current</li>
+        <li>Unable to clear transactions promptly</li>
+      </ul>
+    </div>
+
+    <div class="requirements">
+      <strong>Third Party Expense Verification:</strong>
+      <ul>
+        <li>Maintain third party's audited financial statements</li>
+        <li>Keep tax returns and regulatory filings</li>
+        <li>Document reasonableness of allocations</li>
+        <li>Provide FINRA access to records</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+        
+        body {
+            background: #f8fafc;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .title {
+            text-align: center;
+            color: #1e293b;
+            font-size: 24px;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        .haircut-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+        
+        .haircut-table th {
+            background: #1e293b;
+            color: white;
+            text-align: left;
+            padding: 15px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        .haircut-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: top;
+            line-height: 1.5;
+        }
+        
+        .section-header {
+            background: #475569;
+            color: white;
+            font-weight: 600;
+            padding: 12px 15px;
+        }
+        
+        .position-cell {
+            width: 60%;
+            color: #334155;
+        }
+        
+        .haircut-cell {
+            width: 40%;
+            color: #475569;
+            font-weight: 500;
+        }
+        
+        .note {
+            font-style: italic;
+            font-size: 14px;
+            color: #64748b;
+            margin-top: 5px;
+        }
+        
+        .important-note {
+            background: #f1f5f9;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #475569;
+            border-left: 3px solid #3b82f6;
+        }
+
+        .or-text {
+            color: #64748b;
+            font-style: italic;
+            padding: 0 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Complete Haircut Summary</h1>
+        
+        <table class="haircut-table">
+            <thead>
+                <tr>
+                    <th>Haircut Summary - Position</th>
+                    <th>Haircut</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Basic Money Market & Government Securities -->
+                <tr><td colspan="2" class="section-header">Money Market & Government Securities</td></tr>
+                <tr>
+                    <td class="position-cell">Money Market Instrument - Invest. Grade</td>
+                    <td class="haircut-cell">½%</td>
+                </tr>
+                <tr>
+                    <td class="position-cell">Money Market Mutual Fund</td>
+                    <td class="haircut-cell">2%</td>
+                </tr>
+                <tr>
+                    <td class="position-cell">U.S. Govt. / Agency Security (Net Posit.-H/C increases with maturity)</td>
+                    <td class="haircut-cell">0%-6%</td>
+                </tr>
+
+                <!-- Fixed Income -->
+                <tr><td colspan="2" class="section-header">Fixed Income Securities</td></tr>
+                <tr>
+                    <td class="position-cell">Municipal Bond - Invest. Grade</td>
+                    <td class="haircut-cell">1%-7%<div class="note">H/C increases with maturity</div></td>
+                </tr>
+                <tr>
+                    <td class="position-cell">Corporate Bond - Invest. Grade</td>
+                    <td class="haircut-cell">2%-9%<div class="note">H/C increases with maturity</div></td>
+                </tr>
+                <tr>
+                    <td class="position-cell">Convertible Bonds - Invest. Grade
+                        <div class="note">If trading below par</div>
+                        <div class="note">If trading at or above par</div>
+                    </td>
+                    <td class="haircut-cell">
+                        "Debt" H/C (Max 9%)
+                        <div class="note">"Equity" H/C (15%)</div>
+                    </td>
+                </tr>
+
+                <!-- Equity Securities -->
+                <tr><td colspan="2" class="section-header">Equity Securities</td></tr>
+                <tr>
+                    <td class="position-cell">Preferred Stock / Broad-Based ETF - Invest. Grade</td>
+                    <td class="haircut-cell">10%</td>
+                </tr>
+                <tr>
+                    <td class="position-cell">"All Other Securities" - Common Stocks</td>
+                    <td class="haircut-cell">15%</td>
+                </tr>
+                <tr>
+                    <td class="position-cell">Long Stock (including narrow-based ETFs)</td>
+                    <td class="haircut-cell">15% MV Stock</td>
+                </tr>
+                <tr>
+                    <td class="position-cell">Short Stock</td>
+                    <td class="haircut-cell">15% MV Stock</td>
+                </tr>
+
+                <!-- Options -->
+                <tr><td colspan="2" class="section-header">Options</td></tr>
+                <tr>
+                    <td class="position-cell">Long Listed Option</td>
+                    <td class="haircut-cell">50% MV (Premium)</td>
+                </tr>
+                <tr>
+                    <td class="position-cell">Long Unlisted Option</td>
+                    <td class="haircut-cell">15% MV Stock
+                        <div class="note">But Never More Than Premium (Max. Loss)</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="position-cell">Short Naked Option</td>
+                    <td class="haircut-cell">15% MV Stock Minus Out-The-Money Amt.
+                        <div class="note">But Never Less Than $250</div>
+                    </td>
+                </tr>
+
+                <!-- Combined Positions -->
+                <tr><td colspan="2" class="section-header">Combined Positions</td></tr>
+                <tr>
+                    <td class="position-cell">
+                        Long Stock <span class="or-text">or</span> Short Stock<br>
+                        Long Put <span class="or-text">or</span> Long Call
+                    </td>
+                    <td class="haircut-cell">15% MV Stock Plus 50% Option Premium
+                        <div class="note">But Never More Than Maximum Pot. Loss</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="position-cell">
+                        Long Stock <span class="or-text">or</span> Short Stock<br>
+                        Short Call <span class="or-text">or</span> Short Put
+                    </td>
+                    <td class="haircut-cell">15% MV Stock Minus In-The-Money Amt.</td>
+                </tr>
+                <tr>
+                    <td class="position-cell">
+                        Covered Call Writer<br>
+                        Covered Put Writer
+                    </td>
+                    <td class="haircut-cell">
+                        <div class="note">An In-The-Money option will be exercised, forcing the stock position to be closed at the contract price - thus there is no loss on stock position, so the haircut is reduced</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="position-cell">
+                        Spread Positions<br>
+                        Long Call <span class="or-text">or</span> Long Put<br>
+                        Short Call <span class="or-text">or</span> Short Put<br>
+                        <div class="note">(Spread Positions, which limit gain and limit loss)</div>
+                    </td>
+                    <td class="haircut-cell">
+                        Debit Spread = 0<br>
+                        Credit Spread = Difference in Strike Prices
+                    </td>
+                </tr>
+
+                <!-- Special Cases -->
+                <tr><td colspan="2" class="section-header">Special Cases & Limited Market</td></tr>
+                <tr>
+                    <td class="position-cell">
+                        Stocks with Limited Trading Market<br>
+                        <div class="note">Only 1-2 Market Makers aside from your firm</div>
+                        <div class="note">No Market Makers or non-marketable</div>
+                    </td>
+                    <td class="haircut-cell">
+                        40%
+                        <div class="note">100%</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="position-cell">
+                        Open Contractual Commitments (Underwritings)<br>
+                        Initial Public Offerings (Net Position)<br>
+                        Add-On Offerings (Net Position)
+                    </td>
+                    <td class="haircut-cell">
+                        30%<br>
+                        15%
+                        <div class="note">First $150,000 of haircut excluded if firm has $250,000+ net capital</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="position-cell">
+                        Undue Concentration
+                        <div class="note">If any single non-exempt security position exceeds 10% of Tentative Net Capital</div>
+                    </td>
+                    <td class="haircut-cell">
+                        Extra 15% haircut on concentration amount
+                        <div class="note">In addition to regular haircut</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="important-note">
+            <strong>Important:</strong> For positions with both long and short components:<br>
+            1. Haircut the Greater of the Long or Short Position<br>
+            2. Take a "Test" figure of 25% of Greater Side<br>
+            3. If Smaller Side exceeds "Test" figure, take an extra 15% Haircut on excess amount
+        </div>
+    </div>
+</body>
+</html>

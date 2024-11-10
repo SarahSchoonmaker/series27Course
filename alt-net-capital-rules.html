@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+        
+        body {
+            background: #f8fafc;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .title {
+            text-align: center;
+            color: #1e293b;
+            font-size: 24px;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        .section-title {
+            color: #1e293b;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .info-card {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .info-card h3 {
+            color: #1e293b;
+            font-size: 16px;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        
+        .info-card p {
+            color: #475569;
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 20px 0;
+        }
+        
+        .comparison-table th {
+            background: #1e293b;
+            color: white;
+            text-align: left;
+            padding: 12px 15px;
+        }
+        
+        .comparison-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .highlight {
+            background: #dbeafe;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        
+        .note {
+            font-style: italic;
+            color: #64748b;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Net Capital Requirements & Related Rules</h1>
+        
+        <!-- Alternative Net Capital Section -->
+        <div class="section">
+            <div class="section-title">Alternative Net Capital Computation</div>
+            <div class="content-grid">
+                <div class="info-card">
+                    <h3>Standard "AI" Method</h3>
+                    <p>The firm's ratio of Aggregate Indebtedness to Net Capital must be computed under this method.</p>
+                    <p class="note">This is the default method unless firm qualifies for Alternative Method</p>
+                </div>
+                <div class="info-card">
+                    <h3>Alternative Method Requirements</h3>
+                    <p>Minimum capital must be greater of:</p>
+                    <p>• $250,000</p>
+                    <p>• 2% of total debits in Reserve Formula</p>
+                </div>
+            </div>
+            <div class="note">
+                Under Alternative Method:
+                <ul>
+                    <li>No AI computation required</li>
+                    <li>Most items are customer-related liabilities</li>
+                    <li>Often used by large retail firms with excess capital</li>
+                    <li>Helps avoid technical violations of AI/NC ratio requirements</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Currency Positions Section -->
+        <div class="section">
+            <div class="section-title">Currency Position Haircuts</div>
+            <div class="content-grid">
+                <div class="info-card">
+                    <h3>Major Foreign Currencies</h3>
+                    <p>6% haircut applies to:</p>
+                    <p>• Euro</p>
+                    <p>• British Pound</p>
+                    <p>• Swiss Franc</p>
+                    <p>• Canadian Dollar</p>
+                    <p>• Japanese Yen</p>
+                </div>
+                <div class="info-card">
+                    <h3>Other Currencies</h3>
+                    <p>20% haircut applies to all other foreign currencies</p>
+                    <div class="note">Only applies to non-offset positions</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Gold/Silver Requirements -->
+        <div class="section">
+            <div class="section-title">Gold & Silver Requirements</div>
+            <table class="comparison-table">
+                <tr>
+                    <th>Condition</th>
+                    <th>Requirement</th>
+                </tr>
+                <tr>
+                    <td>Control</td>
+                    <td>Must be in BD's control with serial number identification and immediate disposition ability</td>
+                </tr>
+                <tr>
+                    <td>Form</td>
+                    <td>Must be in good deliverable form (refined/assayed, acceptable to exchanges)</td>
+                </tr>
+                <tr>
+                    <td>Insurance</td>
+                    <td>Must be insured at all times (in custody, depository, or transit)</td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- Commodities/Futures Rules -->
+        <div class="section">
+            <div class="section-title">Commodities & Futures Rules</div>
+            <div class="content-grid">
+                <div class="info-card">
+                    <h3>Partner/Owner Accounts</h3>
+                    <p>Any equity in commodities accounts cannot be used to increase Net Worth</p>
+                </div>
+                <div class="info-card">
+                    <h3>Receivables</h3>
+                    <p>• Management fees from pools: Allowable for 30 days</p>
+                    <p>• Clearing corporation receivables: No time limit</p>
+                </div>
+            </div>
+            
+            <div class="section-title">Commodity Inventory Haircuts</div>
+            <table class="comparison-table">
+                <tr>
+                    <th>Condition</th>
+                    <th>Haircut</th>
+                </tr>
+                <tr>
+                    <td>Not registered as deliverable, covered by futures/option</td>
+                    <td>5%</td>
+                </tr>
+                <tr>
+                    <td>Registered as deliverable, not covered by futures/option</td>
+                    <td>20%</td>
+                </tr>
+                <tr>
+                    <td>Not registered as deliverable, not covered by futures/option</td>
+                    <td>100%</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
