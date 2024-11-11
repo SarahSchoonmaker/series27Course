@@ -2,6 +2,36 @@
 <html>
 <head>
     <style>
+         /* Update the back-to-main style to remove fixed positioning */
+.back-to-main {
+    display: inline-flex;  /* Changed to inline-flex */
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    margin-bottom: 20px;   /* Added margin-bottom */
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    color: #1a472a;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Rest of the styles remain the same */
+.back-to-main:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: #f8fafc;
+}
+
+.back-to-main::before {
+    content: "←";
+    font-size: 1.2em;
+    line-height: 1;
+}
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -117,9 +147,13 @@
         <div class="header">
             <h1>Subordinated Loans in Broker-Dealer Operations</h1>
             <p>Understanding structure, requirements, and implications for net capital</p>
+            <a href="index.html" class="back-to-main">Back to Main</a>
         </div>
 
+
         <div class="section">
+           
+
             <h2>Basic Requirements</h2>
             <div class="requirements">
                 <ul class="requirement-list">
