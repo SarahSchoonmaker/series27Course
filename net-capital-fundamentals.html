@@ -135,11 +135,40 @@
             padding-top: 0.5rem;
             border-top: 1px dashed #e2e8f0;
         }
+
+        .back-to-main {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            color: #1a472a;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .back-to-main:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: #f8fafc;
+        }
+
+        .back-to-main::before {
+            content: "←";
+            font-size: 1.2em;
+            line-height: 1;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Understanding Net Capital Requirements</h1>
+        <a href="index.html" class="back-to-main">Back to Main</a>
 
         <div class="section">
             <div class="section-title"><span class="icon">1</span>What is Net Capital?</div>

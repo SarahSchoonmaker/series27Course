@@ -116,11 +116,41 @@
             color: #2563eb;
             margin: 0.5rem 0;
         }
+
+        .back-to-main {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            color: #1a472a;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .back-to-main:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: #f8fafc;
+        }
+
+        .back-to-main::before {
+            content: "←";
+            font-size: 1.2em;
+            line-height: 1;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
+            <a href="index.html" class="back-to-main">Back to Main</a>
+
             <h1>Aggregate Indebtedness (AI)</h1>
             <p>Understanding the core metrics of broker-dealer debt obligations</p>
         </div>

@@ -151,6 +151,34 @@
     .tab-content.active {
       display: block;
     }
+
+    .back-to-main {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            color: #1a472a;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .back-to-main:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: #f8fafc;
+        }
+
+        .back-to-main::before {
+            content: "←";
+            font-size: 1.2em;
+            line-height: 1;
+        }
   </style>
 </head>
 <body>
@@ -162,7 +190,8 @@
 
     <div id="types" class="tab-content active">
       <h2>Mutual Fund Broker-Dealer Types</h2>
-      
+      <a href="index.html" class="back-to-main">Back to Main</a>
+
       <div class="broker-types">
         <div class="broker-card">
           <div class="capital-badge">$25,000 Min</div>

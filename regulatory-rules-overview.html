@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            background: #f0f2f5;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            color: #1a472a;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e2e8f0;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        .back-to-main {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            color: #1a472a;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .back-to-main:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: #f8fafc;
+        }
+
+        .back-to-main::before {
+            content: "←";
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        .rules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .rule-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.2s;
+        }
+
+        .rule-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .rule-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .rule-name {
+            color: #1a472a;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .rule-badge {
+            background: #ebf8ff;
+            color: #2b6cb0;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        .rule-content {
+            color: #4a5568;
+            font-size: 0.95rem;
+        }
+
+        .deadline {
+            background: #fef3c7;
+            color: #92400e;
+            padding: 8px;
+            border-radius: 6px;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
+        .rule-content ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 0;
+        }
+
+        .rule-content ul li {
+            margin-bottom: 8px;
+        }
+
+        .rule-content ul li strong {
+            color: #1a472a;
+        }
+
+        .rule-content ul ul {
+            margin-left: 20px;
+            margin-top: 5px;
+        }
+
+        .rule-content ul ul li {
+            font-size: 0.9em;
+            color: #4a5568;
+            margin-bottom: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .rules-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .back-to-main {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            color: #1a472a;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .back-to-main:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: #f8fafc;
+        }
+
+        .back-to-main::before {
+            content: "←";
+            font-size: 1.2em;
+            line-height: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Important Regulatory Rules</h1>
+        <a href="index.html" class="back-to-main">Back to Main</a>
+
+        <div class="rules-grid">
+            <div class="rule-card">
+                <div class="rule-header">
+                    <span class="rule-name">Special Reserve Account Exemptions</span>
+                    <span class="rule-badge">15c3-3</span>
+                </div>
+                <div class="rule-content">
+                    <ul>
+                        <li><strong>K(1):</strong> Mutual Fund Broker-Dealers who promptly transmit funds to sponsor</li>
+                        <li><strong>K(2)(i):</strong> No margin accounts, all customer trades through Special Reserve Account</li>
+                        <li><strong>K(2)(ii):</strong> Fully disclosed introducing brokers:
+                            <ul>
+                                <li>$5,000 - Don't receive customer funds/securities</li>
+                                <li>$50,000 - Receive but don't hold funds/securities</li>
+                                <li>$100,000 - Trade for own account</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="rule-card">
+                <div class="rule-header">
+                    <span class="rule-name">Rule 15c3-1</span>
+                    <span class="rule-badge">Net Capital</span>
+                </div>
+                <div class="rule-content">
+                    <p>Net Capital Rule governing broker-dealer financial responsibility requirements.</p>
+                </div>
+            </div>
+
+            <div class="rule-card">
+                <div class="rule-header">
+                    <span class="rule-name">Rule 15c3-3</span>
+                    <span class="rule-badge">Customer Protection</span>
+                </div>
+                <div class="rule-content">
+                    <p>Customer Protection and safekeeping of customer securities.</p>
+                    <div class="deadline">$250k BD requires weekly computation</div>
+                </div>
+            </div>
+
+            <div class="rule-card">
+                <div class="rule-header">
+                    <span class="rule-name">Rule 17a-5</span>
+                    <span class="rule-badge">Reporting</span>
+                </div>
+                <div class="rule-content">
+                    <ul>
+                        <li>FOCUS II due by 17th business day</li>
+                        <li>FORM CUSTODY filed quarterly</li>
+                        <li>SSOI & SOI due within 20 business days</li>
+                        <li>AUDITED FOCUS due 60 days after year end</li>
+                        <li>Audited statements to customers within 105 days</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="rule-card">
+                <div class="rule-header">
+                    <span class="rule-name">Rule 17a-13</span>
+                    <span class="rule-badge">Securities Count</span>
+                </div>
+                <div class="rule-content">
+                    <p>Quarterly count of securities in possession or control.</p>
+                    <div class="deadline">Must be between 2-4 months from last count</div>
+                </div>
+            </div>
+
+            <div class="rule-card">
+                <div class="rule-header">
+                    <span class="rule-name">SIPC 1970</span>
+                    <span class="rule-badge">Protection</span>
+                </div>
+                <div class="rule-content">
+                    <p>Securities Investor Protection Act coverage</p>
+                    <div class="deadline">$500,000 coverage limit</div>
+                </div>
+            </div>
+
+            <div class="rule-card">
+                <div class="rule-header">
+                    <span class="rule-name">Regulation SP</span>
+                    <span class="rule-badge">Privacy</span>
+                </div>
+                <div class="rule-content">
+                    <p>Statement of Privacy notice to retail customers regarding firm's privacy policies and practices.</p>
+                </div>
+            </div>
+
+            <div class="rule-card">
+                <div class="rule-header">
+                    <span class="rule-name">Special Reports</span>
+                    <span class="rule-badge">Additional Filing</span>
+                </div>
+                <div class="rule-content">
+                    <ul>
+                        <li>SLS: Required for $25M+ free credit balances</li>
+                        <li>OBS: Off-balance sheet (22 business days)</li>
+                        <li>SSOI: Revenue/expense details > 5k or 5%</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

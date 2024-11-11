@@ -1,6 +1,36 @@
 <!DOCTYPE html>
 <html>
 <style>
+
+.back-to-main {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            color: #1a472a;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .back-to-main:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: #f8fafc;
+        }
+
+        .back-to-main::before {
+            content: "←";
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        
   body {
     font-family: system-ui, -apple-system, sans-serif;
     line-height: 1.5;
@@ -70,6 +100,7 @@
 
 <div class="section">
   <div class="title">Aggregate Indebtedness Classification & Net Capital Calculation</div>
+  <a href="index.html" class="back-to-main">Back to Main</a>
 
   <table class="table">
     <tr class="header">

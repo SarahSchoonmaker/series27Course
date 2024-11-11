@@ -87,6 +87,34 @@
             font-style: italic;
             margin-top: 8px;
         }
+
+        .back-to-main {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            color: #1a472a;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .back-to-main:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: #f8fafc;
+        }
+
+        .back-to-main::before {
+            content: "←";
+            font-size: 1.2em;
+            line-height: 1;
+        }
     </style>
 </head>
 <body>
@@ -95,6 +123,7 @@
         <p style="color: #4a5568; margin-bottom: 20px;">
             The net capital computation follows a systematic process to determine a broker-dealer's liquid capital available to meet obligations.
         </p>
+        <a href="index.html" class="back-to-main">Back to Main</a>
 
         <div class="flow-container">
             <div class="computation-step">
